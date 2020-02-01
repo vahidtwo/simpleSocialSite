@@ -27,15 +27,34 @@ auth :
               auth
               url: 127.0.0.1:8000/api/account/changePassword  POST
               password = required
+chanel:
+        create:
+            auth
+            url 127.0.0.1:8000/api/chanel/ POST
+            description = required
+            identifier = nullable|uniq
+        update
+            auth
+            url 127.0.0.1:8000/api/chanel/update/<str:identifier> PUT
+            description = nullable
+        delete
+            auth
+            url 127.0.0.1:8000/api/chanel/delete/<int:id> DELETE
+        get
+            auth
+            url 127.0.0.1:8000/api/chanel/get GET
+                            and
+                127.0.0.1:8000/api/chanel/get/<str:identifier>  GET
 posts:
         getSpecialPost:
               auth
               url: 127.0.0.1:8000/api/posts/<int>  GET
         getChanelPost:
               auth
-              url: 127.0.0.1:8000/api/posts/chanel/<string>  GET
+              url: 127.0.0.1:8000/api/posts/chanel/<int>  GET
         createPost:
               auth
               url: 127.0.0.1:8000/api/posts  POST
               title = required
               body = required
+              chanelID = required

@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "ade117e1-83f8-4d21-882c-2135fbd7f335",
+		"name": "social",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/account/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"account",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signuo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test22@tes2t.com",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "ali22",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "alian22",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "091307401401",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/account/signup",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"account",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgetPassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTY1ODA4LCJqdGkiOiJjMjUwMDQ3OTlkY2Q0YzA4OTVmNjQ4ODQ1OWViZTk4YSIsInVzZXJfaWQiOjF9.E6jkCP_JQ9uoQZhAKkx63TpUs3vJXo8nZAqU_nhAyDw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/ac",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTc1ODA0LCJqdGkiOiIyYjg2OWVmM2YxMzc0YmEyYjI0MzQ2ZDMzNTU1NmRhYyIsInVzZXJfaWQiOjV9.AP_7QhDpC5lVJnlbl640XlQKcREYqQJrJC42gNzj4sU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/account/changePassword",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"account",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "getsepecialPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creatPost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjg4NDM3LCJqdGkiOiI5MmZmYzJjNDJkZDQ0NDQyYThmNTAwYTBiZDQwZGViOCIsInVzZXJfaWQiOjV9.aWvxwcZ_ITnUGLx5z7D5WrqDgFPZQiGcvFaI6NIz62E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"test\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, sodales massa eu, pulvinar mi. Quisque quis sapien vel eros blandit vulputate. Cras commodo orci sit amet auctor laoreet. Vestibulum sagittis ac nisi quis mattis. Sed nisl urna, tincidunt non euismod id, tristique ac quam. Donec at tincidunt orci, vitae aliquam augue. Cras tempus quam turpis, ut tristique risus sagittis eget. Cras sit amet dui leo. Etiam aliquet diam magna, mattis lobortis nibh aliquet sed. In a tincidunt ipsum, a euismod justo. Proin vulputate ac odio in tristique. Nunc vitae velit non sem dapibus pharetra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"chanelId\":1\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/posts/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getChanelPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "chanel",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjk5NTE3LCJqdGkiOiIwZmMzMmEwZDdhMDE0YzkzODNmYTYwYjk5OTg1YjQyOCIsInVzZXJfaWQiOjl9.uKN6vZRbMtnZcBdZIVibbUts9XrOjs8DeLv2-24LhKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\":\"123\",\n\t\"identifier\":\"vahidtwo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/chanel/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chanel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjg4NDM3LCJqdGkiOiI5MmZmYzJjNDJkZDQ0NDQyYThmNTAwYTBiZDQwZGViOCIsInVzZXJfaWQiOjV9.aWvxwcZ_ITnUGLx5z7D5WrqDgFPZQiGcvFaI6NIz62E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\":\"11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/chanel/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chanel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjk5NTE3LCJqdGkiOiIwZmMzMmEwZDdhMDE0YzkzODNmYTYwYjk5OTg1YjQyOCIsInVzZXJfaWQiOjl9.uKN6vZRbMtnZcBdZIVibbUts9XrOjs8DeLv2-24LhKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/chanel/delete/3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chanel",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjk5NTE3LCJqdGkiOiIwZmMzMmEwZDdhMDE0YzkzODNmYTYwYjk5OTg1YjQyOCIsInVzZXJfaWQiOjl9.uKN6vZRbMtnZcBdZIVibbUts9XrOjs8DeLv2-24LhKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/chanel/get/test223",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chanel",
+								"get",
+								"test223"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

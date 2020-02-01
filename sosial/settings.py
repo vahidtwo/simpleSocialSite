@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
+    'chanel.apps.ChanelConfig',
     'rest_framework',
     # 'django_mysql',
 ]
