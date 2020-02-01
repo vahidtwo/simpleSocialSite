@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'sosial.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 #
 AUTH_USER_MODEL = 'accounts.User'
-JWT_AUTH = {
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=360),
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=360),
+    'ROTATE_REFRESH_TOKENS': True,
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=365),
+    'SLIDING_TOKEN_LIFETIME': datetime.timedelta(days=360),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': datetime.timedelta(days=365),
 }
 DATABASES = {
     'default': {

@@ -1,0 +1,41 @@
+ path('login', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('signup', Signup.as_view()),
+    path('forgetPassword', ForgetPassword.as_view()),
+    path('changePassword', ChangePassword.as_view()),
+    path('token/refresh', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+
+auth :
+        login:
+              no auth
+              url:127.0.0.1:8000/api/account/login  POST
+              email = required
+              password = required
+        signup:
+              no auth
+              url: 127.0.0.1:8000/api/account/signup  POST
+              first_name = required
+              last_name = required
+              email = required
+              phone_number = required
+              city = nullable
+              country = nullable
+        forgetPassword:
+              no auth
+              url: 127.0.0.1:8000/api/account/forgetPassword  POST
+              email = required
+        changePassword:
+              auth
+              url: 127.0.0.1:8000/api/account/changePassword  POST
+              password = required
+posts:
+        getSpecialPost:
+              auth
+              url: 127.0.0.1:8000/api/posts/<int>  GET
+        getChanelPost:
+              auth
+              url: 127.0.0.1:8000/api/posts/chanel/<string>  GET
+        createPost:
+              auth
+              url: 127.0.0.1:8000/api/posts  POST
+              title = required
+              body = required
