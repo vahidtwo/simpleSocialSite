@@ -1,0 +1,74 @@
+from django.db import models
+
+# Create your models here.
+
+from django.db import models
+from django.contrib.auth.models import (
+    BaseUserManager, AbstractBaseUser
+)
+
+
+class UserManager(BaseUserManager):
+    def create_user(self, first_name, last_name, phone_number, email, password=None):
+        """
+        Creates and saves a User with the given email and password.
+        """
+        if not email:
+            raise ValueError('Users must have an email address')
+
+        user = self.model(
+            email=self.normalize_email(email),
+        )
+        user.first_name = first_name
+        user.last_name = last_name
+        user.phone_number = phone_number
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, first_name, last_name, phone_number, email, password):
+        """
+        Creates and saves a superuser with the given email and password.
+        """
+        user = self.create_user(
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+            password=password,
+        )
+        user.admin = True
+        user.save(using=self._db)
+        return user
+
+
+class User(AbstractBaseUser):
+    email = models.EmailField(
+        max_length=255,
+        unique=True,
+    )
+    active = models.BooleanField(default=True)
+    admin = models.BooleanField(default=False)  # a superuser
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=100)
+    point = models.IntegerField(default=0)
+    phone_number = models.CharField(max_length=13, unique=True)
+    city = models.CharField(max_length=30, null=True)
+    country = models.CharField(max_length=30, null=True)
+    picture = models.ImageField(max_length=1000, null=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone_number']
+    def get_full_name(self):
+        # The user is identified by their email address
+        return str(self.first_name) + ' ' + str(self.last_name)
+
+    def __str__(self):  # __unicode__ on Python 2
+        return self.get_full_name()
+
+    def has_perm(self, perm, obj=None):
+        """Does the user have a specific permission?"""
+        # TODO
+        return True
+
+    objects = UserManager()
