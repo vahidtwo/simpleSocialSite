@@ -47,7 +47,6 @@ class User(AbstractBaseUser):
 	admin = models.BooleanField(default=False)  # a superuser
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=100)
-	point = models.IntegerField(default=0)
 	phone_number = models.CharField(max_length=13, unique=True)
 	city = models.CharField(max_length=30, null=True)
 	country = models.CharField(max_length=30, null=True)

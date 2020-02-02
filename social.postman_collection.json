@@ -6,100 +6,245 @@
 	},
 	"item": [
 		{
-			"name": "auth",
+			"name": "user",
 			"item": [
 				{
-					"name": "login",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "email",
-									"value": "vahid@test.com",
-									"type": "text"
+					"name": "auth",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "vahid@test.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								{
-									"key": "password",
-									"value": "123",
-									"type": "text"
+								"url": {
+									"raw": "127.0.0.1:8000/api/account/login",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"account",
+										"login"
+									]
 								}
-							],
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "127.0.0.1:8000/api/account/login",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"account",
-								"login"
-							]
+						{
+							"name": "signuo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "123",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "text"
+										},
+										{
+											"key": "first_name",
+											"value": "ali22",
+											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "alian22",
+											"type": "text"
+										},
+										{
+											"key": "phone_number",
+											"value": "09130740142",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "127.0.0.1:8000/api/account/signup",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"account",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "forgetPassword",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTY1ODA4LCJqdGkiOiJjMjUwMDQ3OTlkY2Q0YzA4OTVmNjQ4ODQ1OWViZTk4YSIsInVzZXJfaWQiOjF9.E6jkCP_JQ9uoQZhAKkx63TpUs3vJXo8nZAqU_nhAyDw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "127.0.0.1:8000/api/ac",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"ac"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "changePassword",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTc1ODA0LCJqdGkiOiIyYjg2OWVmM2YxMzc0YmEyYjI0MzQ2ZDMzNTU1NmRhYyIsInVzZXJfaWQiOjV9.AP_7QhDpC5lVJnlbl640XlQKcREYqQJrJC42gNzj4sU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "127.0.0.1:8000/api/account/changePassword",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"account",
+										"changePassword"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
-					"name": "signuo",
+					"name": "update",
 					"request": {
-						"method": "POST",
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "password",
-									"value": "123",
+									"key": "email",
+									"value": "vahid1@test.com",
 									"type": "text"
 								},
 								{
-									"key": "email",
-									"value": "test@test.com",
+									"key": "username",
+									"value": "vahid",
 									"type": "text"
 								},
 								{
 									"key": "first_name",
-									"value": "ali22",
+									"value": "vahid",
 									"type": "text"
 								},
 								{
 									"key": "last_name",
-									"value": "alian22",
+									"value": "imanian",
 									"type": "text"
 								},
 								{
 									"key": "phone_number",
-									"value": "09130740142",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "123",
+									"value": "09130744444",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "127.0.0.1:8000/api/account/signup",
+							"raw": "127.0.0.1:8000/api/account/update",
 							"host": [
 								"127",
 								"0",
@@ -110,71 +255,29 @@
 							"path": [
 								"api",
 								"account",
-								"signup"
+								"update"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "forgetPassword",
+					"name": "me",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTY1ODA4LCJqdGkiOiJjMjUwMDQ3OTlkY2Q0YzA4OTVmNjQ4ODQ1OWViZTk4YSIsInVzZXJfaWQiOjF9.E6jkCP_JQ9uoQZhAKkx63TpUs3vJXo8nZAqU_nhAyDw",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
 									"type": "string"
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8000/api/ac",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"ac"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "changePassword",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTc1ODA0LCJqdGkiOiIyYjg2OWVmM2YxMzc0YmEyYjI0MzQ2ZDMzNTU1NmRhYyIsInVzZXJfaWQiOjV9.AP_7QhDpC5lVJnlbl640XlQKcREYqQJrJC42gNzj4sU",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "password",
-									"value": "123",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "127.0.0.1:8000/api/account/changePassword",
+							"raw": "127.0.0.1:8000/api/account/me",
 							"host": [
 								"127",
 								"0",
@@ -185,8 +288,19 @@
 							"path": [
 								"api",
 								"account",
-								"changePassword"
+								"me"
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []
@@ -403,6 +517,106 @@
 		{
 			"name": "chanel",
 			"item": [
+				{
+					"name": "author",
+					"item": [
+						{
+							"name": "deleteAuthor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "identifier",
+											"value": "vahid",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "127.0.0.1:8000/api/chanel/author/delete/goli",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"chanel",
+										"author",
+										"delete",
+										"goli"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addAuthor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "identifier",
+											"value": "vahid",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "goli",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "127.0.0.1:8000/api/chanel/author",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"chanel",
+										"author"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
 				{
 					"name": "create",
 					"request": {
@@ -873,6 +1087,23 @@
 								"get",
 								"3"
 							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []

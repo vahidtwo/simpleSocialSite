@@ -1,9 +1,18 @@
-auth :
-	login:
-		  no auth
-		  url:127.0.0.1:8000/api/account/login  POST
-		  email = required
-		  password = required
+user:
+	me:
+		auth
+		url 127.0.0.1:8000/api/account/me GET
+	get:
+		auth
+		url 127.0.0.1:8000/api/account/get/<username> GET
+	update:
+		auth
+		url 127.0.0.1:8000/api/account/update POST
+		email required
+		username required
+		first_name required
+		last_name required
+		phone_number required
 	signup:
 		  no auth
 		  url: 127.0.0.1:8000/api/account/signup  POST
@@ -14,14 +23,20 @@ auth :
 		  phone_number = required
 		  city = nullable
 		  country = nullable
-	forgetPassword:
-		  no auth
-		  url: 127.0.0.1:8000/api/account/forgetPassword  POST
-		  email = required
-	changePassword:
-		  auth
-		  url: 127.0.0.1:8000/api/account/changePassword  POST
-		  password = required
+	auth :
+		login:
+			  no auth
+			  url:127.0.0.1:8000/api/account/login  POST
+			  email = required
+			  password = required
+		forgetPassword:
+			  no auth
+			  url: 127.0.0.1:8000/api/account/forgetPassword  POST
+			  email = required
+		changePassword:
+			  auth
+			  url: 127.0.0.1:8000/api/account/changePassword  POST
+			  password = required
 chanel:
 	author:
 			add:

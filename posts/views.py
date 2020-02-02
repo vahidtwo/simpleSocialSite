@@ -6,7 +6,7 @@ from rest_framework.status import (
 from .serializers import PostSerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from Helper.permission import IsOwner, IsAuthorOwner
+from Helper.permission import  IsAuthorOwner
 from chanel.models import Chanel
 
 
