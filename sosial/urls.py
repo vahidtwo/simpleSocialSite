@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from search.search import Search
 
 urlpatterns = [
     path('api/account/', include('accounts.urls')),
@@ -22,4 +23,5 @@ urlpatterns = [
     path('api/comment/', include('comment.urls')),
     path('api/like/', include('like.urls')),
     path('api/notify/', include('notify.urls')),
+    path('api/search/', Search.as_view()),
 ]

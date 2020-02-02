@@ -10,6 +10,7 @@ auth :
 		  first_name = required
 		  last_name = required
 		  email = required
+		  username= required
 		  phone_number = required
 		  city = nullable
 		  country = nullable
@@ -22,6 +23,16 @@ auth :
 		  url: 127.0.0.1:8000/api/account/changePassword  POST
 		  password = required
 chanel:
+	author:
+			add:
+				auth
+				url 127.0.0.1:8000/api/chanel/author POST
+				identifier required
+				username required
+			delete:
+				auth
+				url 127.0.0.1:8000/api/chanel/author/delete/<username>
+				identifier = required
 	follow:
 		auth
 		url 127.0.0.1:8000/api/chanel/follow/<str:identifier> POST for unFollow repeat this
@@ -92,3 +103,7 @@ notify:
 		auth
 		url 127.0.0.1:8000/api/notify/get GET and 127.0.0.1:8000/api/notify/get/<int:id> GET
 		##   if with 127.0.0.1:8000/api/notify/get/3 get notify this notify dont send in response
+search:
+		auth
+		url 127.0.0.1:8000/api/search/ POST
+		body = required

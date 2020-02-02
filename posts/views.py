@@ -17,7 +17,7 @@ class Posts(APIView):
 		_request_params = dict(request.data)
 		if not _request_params.get('chanelIdentifier'):
 			return JsonResponse(data={'msg': 'chanelIdentifier Does not SEND', 'success': False},
-								status=HTTP_400_BAD_REQUEST)
+			                    status=HTTP_400_BAD_REQUEST)
 		try:
 			chanel = Chanel.objects.get(identifier=_request_params.get('chanelIdentifier'))
 			self.check_object_permissions(request, chanel)
@@ -43,12 +43,11 @@ class Posts(APIView):
 				return JsonResponse(data={'msg': 'post DosNotExist', 'success': False}, status=HTTP_400_BAD_REQUEST)
 		elif identifier:
 			data = PostSerializer(Post.objects.filter(chanel__identifier=identifier),
-								  many=True).data
+			                      many=True).data
 		else:
 			_request_params = request.data
 			data = PostSerializer(many=True, instance=Post.objects.filter(owner=_request_params.get('owner'))).data
 		return JsonResponse(data={'msg': data, 'success': True}, status=HTTP_200_OK)
-
 
 	def put(self, request, pk):
 		_request_params = dict(request.data)
@@ -65,7 +64,6 @@ class Posts(APIView):
 			return JsonResponse(data={'msg': 'update post', 'success': True}, status=HTTP_200_OK)
 		else:
 			return JsonResponse(data={'msg': ser.errors, 'success': False}, status=HTTP_400_BAD_REQUEST)
-
 
 	def delete(self, request, pk=None):
 		try:

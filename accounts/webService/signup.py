@@ -18,6 +18,7 @@ class Signup(APIView):
 			validated_data = validated_data.data
 			validated_data['point'] = 0
 			validated_data['phone_number'] = _request_params.get('phone_number')
+			validated_data['email'] = _request_params.get('email')
 			try:
 				user = User.objects.create(**validated_data)
 			except IntegrityError as e:
@@ -25,7 +26,7 @@ class Signup(APIView):
 
 			user.set_password(_request_params['password'])
 			user.save()
-			chanel_identifier = validated_data['email'].split('@')[0]
+			chanel_identifier = user.username
 			owner_id = user.id
 			description = 'main page of {}'.format(chanel_identifier)
 			try:

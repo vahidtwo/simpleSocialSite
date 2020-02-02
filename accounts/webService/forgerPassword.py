@@ -1,7 +1,7 @@
 from ..models import User
 from django.http import JsonResponse, HttpResponse
 from rest_framework.status import (
-     HTTP_400_BAD_REQUEST
+     HTTP_404_NOT_FOUND
 )
 from rest_framework.views import APIView
 
@@ -16,4 +16,4 @@ class ForgetPassword (APIView):
             user.save()
             #TODO send email
         except User.DoesNotExist:
-            return HttpResponse('user not found . params: email:""', status=HTTP_400_BAD_REQUEST)
+            return HttpResponse('user not found . params: email:""', status=HTTP_404_NOT_FOUND)

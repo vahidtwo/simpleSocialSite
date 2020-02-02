@@ -9,7 +9,7 @@ from django.contrib.auth.models import (
 
 
 class UserManager(BaseUserManager):
-	def create_user(self, first_name, last_name, phone_number, email, password=None):
+	def create_user(self, first_name, last_name, phone_number, email, username, password=None):
 		if not email:
 			raise ValueError('Users must have an email address')
 
@@ -17,6 +17,7 @@ class UserManager(BaseUserManager):
 			email=self.normalize_email(email),
 		)
 		user.first_name = first_name
+		user.username = username
 		user.last_name = last_name
 		user.phone_number = phone_number
 		user.set_password(password)
@@ -41,6 +42,7 @@ class User(AbstractBaseUser):
 		max_length=255,
 		unique=True,
 	)
+	username = models.CharField(max_length=200, unique=True)
 	active = models.BooleanField(default=True)
 	admin = models.BooleanField(default=False)  # a superuser
 	first_name = models.CharField(max_length=50)
@@ -51,14 +53,14 @@ class User(AbstractBaseUser):
 	country = models.CharField(max_length=30, null=True)
 	picture = models.ImageField(max_length=1000, null=True)
 
-	USERNAME_FIELD = 'email'
+	USERNAME_FIELD = 'username'
 	REQUIRED_FIELDS = ['first_name', 'last_name', 'phone_number']
 
 	def get_full_name(self):
 		return str(self.first_name) + ' ' + str(self.last_name)
 
 	def get_username(self):
-		return str(self.email).split('@')[0]
+		return self.username
 
 	def __str__(self):
 		return self.get_full_name()
