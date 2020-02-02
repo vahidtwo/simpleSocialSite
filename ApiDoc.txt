@@ -51,10 +51,18 @@ posts:
               url: 127.0.0.1:8000/api/posts/<int>  GET
         getChanelPost:
               auth
-              url: 127.0.0.1:8000/api/posts/chanel/<int>  GET
+              url: 127.0.0.1:8000/api/posts/chanel/<str:identifier>  GET
         createPost:
               auth
               url: 127.0.0.1:8000/api/posts  POST
               title = required
               body = required
-              chanelID = required
+              identifier = required
+        update:
+              auth
+              url:127.0.0.1:8000/api/posts/update/<int:id> PUT
+              title = required
+              body = required
+        delete:
+              auth
+              url 127.0.0.1:8000/api/posts/delete/<int:id> DELETE

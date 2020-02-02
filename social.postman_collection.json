@@ -25,7 +25,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "test@test.com",
+									"value": "test22@tes2t.com",
 									"type": "text"
 								},
 								{
@@ -200,10 +200,32 @@
 				{
 					"name": "getsepecialPost",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzA1MjgxLCJqdGkiOiJlMWM4ZTg0MGM4MzY0N2RkYjUyZDhmODBiMjg2NWM2YSIsInVzZXJfaWQiOjl9.Gi3kRcCU5Vo644MOpdcNoCqEoggRB4Ltgfj5lKEpp-8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "127.0.0.1:8000/api/posts/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -232,7 +254,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"test\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, sodales massa eu, pulvinar mi. Quisque quis sapien vel eros blandit vulputate. Cras commodo orci sit amet auctor laoreet. Vestibulum sagittis ac nisi quis mattis. Sed nisl urna, tincidunt non euismod id, tristique ac quam. Donec at tincidunt orci, vitae aliquam augue. Cras tempus quam turpis, ut tristique risus sagittis eget. Cras sit amet dui leo. Etiam aliquet diam magna, mattis lobortis nibh aliquet sed. In a tincidunt ipsum, a euismod justo. Proin vulputate ac odio in tristique. Nunc vitae velit non sem dapibus pharetra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"chanelId\":1\n\n}",
+							"raw": "{\n\t\"title\":\"test\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, sodales massa eu, pulvinar mi. Quisque quis sapien vel eros blandit vulputate. Cras commodo orci sit amet auctor laoreet. Vestibulum sagittis ac nisi quis mattis. Sed nisl urna, tincidunt non euismod id, tristique ac quam. Donec at tincidunt orci, vitae aliquam augue. Cras tempus quam turpis, ut tristique risus sagittis eget. Cras sit amet dui leo. Etiam aliquet diam magna, mattis lobortis nibh aliquet sed. In a tincidunt ipsum, a euismod justo. Proin vulputate ac odio in tristique. Nunc vitae velit non sem dapibus pharetra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"identifier\":\"test226\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -260,10 +282,117 @@
 				{
 					"name": "getChanelPost",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzA1MjgxLCJqdGkiOiJlMWM4ZTg0MGM4MzY0N2RkYjUyZDhmODBiMjg2NWM2YSIsInVzZXJfaWQiOjl9.Gi3kRcCU5Vo644MOpdcNoCqEoggRB4Ltgfj5lKEpp-8",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "127.0.0.1:8000/api/posts/chanel/test226",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"chanel",
+								"test226"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzA1MjgxLCJqdGkiOiJlMWM4ZTg0MGM4MzY0N2RkYjUyZDhmODBiMjg2NWM2YSIsInVzZXJfaWQiOjl9.Gi3kRcCU5Vo644MOpdcNoCqEoggRB4Ltgfj5lKEpp-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\":\"test\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, sodales massa eu, pulvinar mi. Quisque quis sapien vel eros blandit vulputate. Cras commodo orci sit amet auctor laoreet. Vestibulum sagittis ac nisi quis mattis. Sed nisl urna, tincidunt non euismod id, tristique ac quam. Donec at tincidunt orci, vitae aliquam augue. Cras tempus quam turpis, ut tristique risus sagittis eget. Cras sit amet dui leo. Etiam aliquet diam magna, mattis lobortis nibh aliquet sed. In a tincidunt ipsum, a euismod justo. Proin vulputate ac odio in tristique. Nunc vitae velit non sem dapibus pharetra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\"\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/posts/update/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzA1MjgxLCJqdGkiOiJlMWM4ZTg0MGM4MzY0N2RkYjUyZDhmODBiMjg2NWM2YSIsInVzZXJfaWQiOjl9.Gi3kRcCU5Vo644MOpdcNoCqEoggRB4Ltgfj5lKEpp-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/posts/delete/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"delete",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -298,7 +427,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"description\":\"123\",\n\t\"identifier\":\"vahidtwo\"\n}",
+							"raw": "{\n\t\"description\":\"123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -380,7 +509,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjk5NTE3LCJqdGkiOiIwZmMzMmEwZDdhMDE0YzkzODNmYTYwYjk5OTg1YjQyOCIsInVzZXJfaWQiOjl9.uKN6vZRbMtnZcBdZIVibbUts9XrOjs8DeLv2-24LhKQ",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzA1MjgxLCJqdGkiOiJlMWM4ZTg0MGM4MzY0N2RkYjUyZDhmODBiMjg2NWM2YSIsInVzZXJfaWQiOjl9.Gi3kRcCU5Vo644MOpdcNoCqEoggRB4Ltgfj5lKEpp-8",
 									"type": "string"
 								}
 							]
@@ -388,7 +517,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8000/api/chanel/delete/3",
+							"raw": "127.0.0.1:8000/api/chanel/delete/6",
 							"host": [
 								"127",
 								"0",
@@ -400,7 +529,7 @@
 								"api",
 								"chanel",
 								"delete",
-								"3"
+								"6"
 							]
 						}
 					},

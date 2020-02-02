@@ -45,7 +45,7 @@ class Chanels(APIView):
         ser = ChanelSerializer(chanel, data=_request_params)
         if ser.is_valid():
             ser.save()
-            return JsonResponse(data={'msg': 'update chanel', 'success': True}, status=HTTP_201_CREATED)
+            return JsonResponse(data={'msg': 'update chanel', 'success': True}, status=HTTP_200_OK)
         else:
             return JsonResponse(data={'msg': ser.errors, 'success': False}, status=HTTP_400_BAD_REQUEST)
 
