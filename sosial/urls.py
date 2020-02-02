@@ -20,4 +20,5 @@ urlpatterns = [
     path('api/posts/', include('posts.urls')),
     path('api/chanel/', include('chanel.urls')),
     path('api/comment/', include('comment.urls')),
+    path('api/like/', include('like.urls')),
 ]

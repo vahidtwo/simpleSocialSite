@@ -1,79 +1,86 @@
 auth :
-        login:
-              no auth
-              url:127.0.0.1:8000/api/account/login  POST
-              email = required
-              password = required
-        signup:
-              no auth
-              url: 127.0.0.1:8000/api/account/signup  POST
-              first_name = required
-              last_name = required
-              email = required
-              phone_number = required
-              city = nullable
-              country = nullable
-        forgetPassword:
-              no auth
-              url: 127.0.0.1:8000/api/account/forgetPassword  POST
-              email = required
-        changePassword:
-              auth
-              url: 127.0.0.1:8000/api/account/changePassword  POST
-              password = required
+	login:
+		  no auth
+		  url:127.0.0.1:8000/api/account/login  POST
+		  email = required
+		  password = required
+	signup:
+		  no auth
+		  url: 127.0.0.1:8000/api/account/signup  POST
+		  first_name = required
+		  last_name = required
+		  email = required
+		  phone_number = required
+		  city = nullable
+		  country = nullable
+	forgetPassword:
+		  no auth
+		  url: 127.0.0.1:8000/api/account/forgetPassword  POST
+		  email = required
+	changePassword:
+		  auth
+		  url: 127.0.0.1:8000/api/account/changePassword  POST
+		  password = required
 chanel:
-        create:
-            auth
-            url 127.0.0.1:8000/api/chanel/ POST
-            description = required
-            identifier = nullable|uniq
-        update
-            auth
-            url 127.0.0.1:8000/api/chanel/update/<str:identifier> PUT
-            description = nullable
-        delete
-            auth
-            url 127.0.0.1:8000/api/chanel/delete/<int:id> DELETE
-        get
-            auth
-            url 127.0.0.1:8000/api/chanel/get GET
-                            and
-                127.0.0.1:8000/api/chanel/get/<str:identifier>  GET
+	create:
+		auth
+		url 127.0.0.1:8000/api/chanel/ POST
+		description = required
+		identifier = nullable|uniq
+	update
+		auth
+		url 127.0.0.1:8000/api/chanel/update/<str:identifier> PUT
+		description = nullable
+	delete
+		auth
+		url 127.0.0.1:8000/api/chanel/delete/<int:id> DELETE
+	get
+		auth
+		url 127.0.0.1:8000/api/chanel/get GET
+						and
+			127.0.0.1:8000/api/chanel/get/<str:identifier>  GET
 posts:
-        getSpecialPost:
-              auth
-              url: 127.0.0.1:8000/api/posts/<int>  GET
-        getChanelPost:
-              auth
-              url: 127.0.0.1:8000/api/posts/chanel/<str:identifier>  GET
-        createPost:
-              auth
-              url: 127.0.0.1:8000/api/posts  POST
-              title = required
-              body = required
-              identifier = required
-        update:
-              auth
-              url:127.0.0.1:8000/api/posts/update/<int:id> PUT
-              title = required
-              body = required
-        delete:
-              auth
-              url 127.0.0.1:8000/api/posts/delete/<int:id> DELETE
+	getSpecialPost:
+		  auth
+		  url: 127.0.0.1:8000/api/posts/<int>  GET
+	getChanelPost:
+		  auth
+		  url: 127.0.0.1:8000/api/posts/chanel/<str:identifier>  GET
+	createPost:
+		  auth
+		  url: 127.0.0.1:8000/api/posts  POST
+		  title = required
+		  body = required
+		  identifier = required
+	update:
+		  auth
+		  url:127.0.0.1:8000/api/posts/update/<int:id> PUT
+		  title = required
+		  body = required
+	delete:
+		  auth
+		  url 127.0.0.1:8000/api/posts/delete/<int:id> DELETE
 comment:
-        create:
-            auth
-            url 127.0.0.1:8000/api/comment/  POST
-            "body": required
-			"comment" nullable
-			"post": required
-		update :
-			auth
-			url 127.0.0.1:8000/api/comment/update/<int:comment_id>  put
-			body = required
-		get :
-			auth
-			127.0.0.1:8000/api/comment/get/<int:post_id>   GET
-		delete:
-			auth
-			url 127.0.0.1:8000/api/comment/delete/<int:comment_id>  DELETE
+	create:
+		auth
+		url 127.0.0.1:8000/api/comment/  POST
+		"body": required
+		"comment" nullable
+		"post": required
+	update :
+		auth
+		url 127.0.0.1:8000/api/comment/update/<int:comment_id>  put
+		body = required
+	get :
+		auth
+		127.0.0.1:8000/api/comment/get/<int:post_id>   GET
+	delete:
+		auth
+		url 127.0.0.1:8000/api/comment/delete/<int:comment_id>  DELETE
+like:
+	create and delete(if exists):
+		auth
+		url 127.0.0.1:8000/api/like/ POST
+		value = required (just choose -1 and 1)
+		post = required
+
