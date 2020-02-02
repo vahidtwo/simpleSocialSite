@@ -19,4 +19,5 @@ urlpatterns = [
     path('api/account/', include('accounts.urls')),
     path('api/posts/', include('posts.urls')),
     path('api/chanel/', include('chanel.urls')),
+    path('api/comment/', include('comment.urls')),
 ]

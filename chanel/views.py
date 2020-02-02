@@ -1,5 +1,3 @@
-from accounts.models import User
-from .models import Chanel
 from django.http import JsonResponse
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED

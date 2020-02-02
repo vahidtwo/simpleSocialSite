@@ -60,3 +60,20 @@ posts:
         delete:
               auth
               url 127.0.0.1:8000/api/posts/delete/<int:id> DELETE
+comment:
+        create:
+            auth
+            url 127.0.0.1:8000/api/comment/  POST
+            "body": required
+			"comment" nullable
+			"post": required
+		update :
+			auth
+			url 127.0.0.1:8000/api/comment/update/<int:comment_id>  put
+			body = required
+		get :
+			auth
+			127.0.0.1:8000/api/comment/get/<int:post_id>   GET
+		delete:
+			auth
+			url 127.0.0.1:8000/api/comment/delete/<int:comment_id>  DELETE

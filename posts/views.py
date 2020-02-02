@@ -16,18 +16,18 @@ class Posts(APIView):
     def post(self, request):
         _request_params = dict(request.data)
         if not _request_params.get('chanelIdentifier'):
-            return JsonResponse(data={'msg': 'chanel Does not SEND', 'success': False}, status=HTTP_400_BAD_REQUEST)
+            return JsonResponse(data={'msg': 'chanelIdentifier Does not SEND', 'success': False}, status=HTTP_400_BAD_REQUEST)
         try:
             chanel = Chanel.objects.get(identifier=_request_params.get('chanelIdentifier'))
             self.check_object_permissions(request, chanel)
         except Chanel.DoesNotExist:
             return JsonResponse(data={'msg': 'chanel DosNotExist', 'success': False}, status=HTTP_400_BAD_REQUEST)
-        _request_params['owner'] = chanel.id
+        _request_params['chanel'] = chanel.id
         _request_params['author'] = request.user.id
         ser = PostSerializer(data=_request_params)
         if ser.is_valid():
             ser_data = ser.data
-            ser_data['owner'] = chanel
+            ser_data['chanel'] = chanel
             ser_data['author'] = request.user
             Post.objects.create(**ser_data)
             return JsonResponse(data={'msg': 'create post', 'success': True}, status=HTTP_201_CREATED)
@@ -57,7 +57,7 @@ class Posts(APIView):
             _request_params['chanel'] = post.chanel_id
             _request_params['author'] = post.author_id
         except Post.DoesNotExist:
-                return JsonResponse(data={'msg': 'post DosNotExist', 'success': False}, status=HTTP_400_BAD_REQUEST)
+            return JsonResponse(data={'msg': 'post DosNotExist', 'success': False}, status=HTTP_400_BAD_REQUEST)
         ser = PostSerializer(post, _request_params, allow_null=True)
         if ser.is_valid():
             ser.save()

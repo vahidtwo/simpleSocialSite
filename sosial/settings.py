@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
     'chanel.apps.ChanelConfig',
+    'comment.apps.CommentConfig',
     'rest_framework',
     # 'django_mysql',
 ]

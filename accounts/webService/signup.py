@@ -17,7 +17,7 @@ class Signup(APIView):
             validated_data = validated_data.data
             validated_data['point'] = 0
             user = User.objects.create(**validated_data)
-            user.set_password(validated_data['password'])
+            user.set_password(_request_params['password'])
             user.save()
             chanel_identifier= validated_data['email'].split('@')[0]
             owner_id = user.id
