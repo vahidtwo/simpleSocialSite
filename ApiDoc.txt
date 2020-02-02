@@ -22,6 +22,10 @@ auth :
 		  url: 127.0.0.1:8000/api/account/changePassword  POST
 		  password = required
 chanel:
+	follow:
+		auth
+		url 127.0.0.1:8000/api/chanel/follow/<str:identifier> POST for unFollow repeat this
+
 	create:
 		auth
 		url 127.0.0.1:8000/api/chanel/ POST
