@@ -7,8 +7,6 @@ from rest_framework.status import (
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from Helper.permission import IsOwner
-
-# Create your views here.
 from notify.serializers import NotifySerializer
 
 

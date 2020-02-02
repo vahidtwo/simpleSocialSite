@@ -91,4 +91,4 @@ notify:
 	get
 		auth
 		url 127.0.0.1:8000/api/notify/get GET and 127.0.0.1:8000/api/notify/get/<int:id> GET
-		## if with 127.0.0.1:8000/api/notify/get/3 get notify this notify dont send in response
+		##   if with 127.0.0.1:8000/api/notify/get/3 get notify this notify dont send in response
