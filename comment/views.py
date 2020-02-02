@@ -1,4 +1,5 @@
 from accounts.models import User
+from notify.models import Notify
 from posts.models import Post
 from .models import Comment
 from django.http import JsonResponse
@@ -34,7 +35,10 @@ class Comments(APIView):
             ser_data['comment'] = comment
             if not comment:
                 ser_data.pop('comment')
-            Comment.objects.create(**ser_data)
+            comment = Comment.objects.create(**ser_data)
+            Notify.objects.create(**{'user': post.author, 'body': 'you have a comment of {}'.
+                                  format(request.user.get_username()),
+                                     "link": "{}/api/comment/get/".format(request.get_host())+str(comment.id)})
             return JsonResponse(data={'msg': 'comment create', 'success': True}, status=HTTP_200_OK)
         else:
             return JsonResponse(data={'msg': ser.errors, 'success': False}, status=HTTP_400_BAD_REQUEST)

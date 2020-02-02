@@ -2,6 +2,8 @@ from django.http import JsonResponse
 from rest_framework.status import (
 	HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED
 )
+
+from notify.models import Notify
 from ..serializers import ChanelSerializer, FollowSerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
@@ -30,6 +32,9 @@ class Following(APIView):
 				                    status=HTTP_201_CREATED)
 			except Follow.DoesNotExist:
 				follow = Follow.objects.create(**{'user': request.user, 'chanel': chanel})
+				Notify.objects.create(**{'user': follow.chanel.owner, 'body': 'you follow by {}'.
+				                      format(request.user.get_username()),
+				                         "link": "{}/api/chanel/get/".format(request.get_host()) + str(follow.chanel.identifier)})
 				return JsonResponse(data={'msg': 'you follow {}'.format(follow.chanel.identifier), 'success': True},
 				                    status=HTTP_201_CREATED)
 		else:

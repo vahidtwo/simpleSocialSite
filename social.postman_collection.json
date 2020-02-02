@@ -25,7 +25,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "test22@tes2t.com",
+									"value": "vahid@test.com",
 									"type": "text"
 								},
 								{
@@ -73,7 +73,7 @@
 								},
 								{
 									"key": "email",
-									"value": "test22@tes2t.com",
+									"value": "test@test.com",
 									"type": "text"
 								},
 								{
@@ -88,7 +88,7 @@
 								},
 								{
 									"key": "phone_number",
-									"value": "091307401401",
+									"value": "09130740142",
 									"type": "text"
 								},
 								{
@@ -238,7 +238,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjg4NDM3LCJqdGkiOiI5MmZmYzJjNDJkZDQ0NDQyYThmNTAwYTBiZDQwZGViOCIsInVzZXJfaWQiOjV9.aWvxwcZ_ITnUGLx5z7D5WrqDgFPZQiGcvFaI6NIz62E",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
 									"type": "string"
 								}
 							]
@@ -254,7 +254,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"test\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, sodales massa eu, pulvinar mi. Quisque quis sapien vel eros blandit vulputate. Cras commodo orci sit amet auctor laoreet. Vestibulum sagittis ac nisi quis mattis. Sed nisl urna, tincidunt non euismod id, tristique ac quam. Donec at tincidunt orci, vitae aliquam augue. Cras tempus quam turpis, ut tristique risus sagittis eget. Cras sit amet dui leo. Etiam aliquet diam magna, mattis lobortis nibh aliquet sed. In a tincidunt ipsum, a euismod justo. Proin vulputate ac odio in tristique. Nunc vitae velit non sem dapibus pharetra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"identifier\":\"test226\"\n\n}",
+							"raw": "{\n\t\"title\":\"test1\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, etra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"chanelIdentifier\":\"vahid\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -287,7 +287,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzA1MjgxLCJqdGkiOiJlMWM4ZTg0MGM4MzY0N2RkYjUyZDhmODBiMjg2NWM2YSIsInVzZXJfaWQiOjl9.Gi3kRcCU5Vo644MOpdcNoCqEoggRB4Ltgfj5lKEpp-8",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
 									"type": "string"
 								}
 							]
@@ -295,7 +295,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8000/api/posts/chanel/test226",
+							"raw": "127.0.0.1:8000/api/posts/chanel/test",
 							"host": [
 								"127",
 								"0",
@@ -307,7 +307,7 @@
 								"api",
 								"posts",
 								"chanel",
-								"test226"
+								"test"
 							]
 						}
 					},
@@ -543,7 +543,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNjk5NTE3LCJqdGkiOiIwZmMzMmEwZDdhMDE0YzkzODNmYTYwYjk5OTg1YjQyOCIsInVzZXJfaWQiOjl9.uKN6vZRbMtnZcBdZIVibbUts9XrOjs8DeLv2-24LhKQ",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
 									"type": "string"
 								}
 							]
@@ -551,7 +551,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8000/api/chanel/get/test223",
+							"raw": "127.0.0.1:8000/api/chanel/get/test",
 							"host": [
 								"127",
 								"0",
@@ -563,7 +563,315 @@
 								"api",
 								"chanel",
 								"get",
-								"test223"
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"123\",\n    \"comment\":1,\n    \"post\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/comment/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzQwMjAyLCJqdGkiOiI4YjMzNmM5Zjc4ZTI0NzdmOWRlZWYwNWY0MjA4YTE3OSIsInVzZXJfaWQiOjl9.1XH-ntGl6_yj8Pv21FsuXj7hXOuvc5GwC30nkUqhZUM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"body\":\"chumm\",\"post\":2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/comment/update/2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/comment/get/1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzQ3MDUyLCJqdGkiOiI3OTU0MjhiNWE0MDg0OWI0ODYxMzA4YmQ1OGU2MjYzNCIsInVzZXJfaWQiOjEwfQ.njj1c5SdXc1UFpMzQil1YkLoyqh3azR46Ia_cm5F03s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/comment/delete/3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "like",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"value\":-1,\"post\":2}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/like/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"like",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "follow",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/chanel/follow/vahid",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"chanel",
+								"follow",
+								"vahid"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "notify",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/notify/get/3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"notify",
+								"get",
+								"3"
 							]
 						}
 					},

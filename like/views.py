@@ -8,7 +8,6 @@ from rest_framework.status import (
 )
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from Helper.permission import IsOwner
 
 
 # Create your views here.
@@ -41,7 +40,7 @@ class Likes(APIView):
 										status=HTTP_400_BAD_REQUEST)
 				Like.objects.create(**ser_data)
 				if ser_data.get('value') == 1:
-					return JsonResponse(data={'msg': 'liked', 'success': True}, status=HTTP_200_OK)
-				return JsonResponse(data={'msg': 'disLiked', 'success': True}, status=HTTP_200_OK)
+					return JsonResponse(data={'msg': 'liked', 'success': True}, status=HTTP_201_CREATED)
+				return JsonResponse(data={'msg': 'disLiked', 'success': True}, status=HTTP_201_CREATED)
 			else:
 				return JsonResponse(data={'msg': ser.errors, 'success': False}, status=HTTP_400_BAD_REQUEST)

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'chanel.apps.ChanelConfig',
     'comment.apps.CommentConfig',
     'like.apps.LikeConfig',
+    'notify.apps.NotifyConfig',
     'rest_framework',
     # 'django_mysql',
 ]
