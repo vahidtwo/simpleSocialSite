@@ -21,7 +21,7 @@ class Chanels(APIView):
         _request_params['author'] = author.id
         _request_params['owner'] = owner.id
         if not _request_params.get('identifier'):
-            _request_params['identifier'] = str(request.user.email.split('@')[0]) + "" + str(random.randint(1, 6))
+            _request_params['identifier'] = str(request.user.username)
         ser = ChanelSerializer(data=_request_params)
         if ser.is_valid():
             chanel = Chanel.objects.create(**ser.data, owner=author)

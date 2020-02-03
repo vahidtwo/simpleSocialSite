@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import JsonResponse
 from rest_framework.parsers import FileUploadParser
 from rest_framework.status import (
@@ -33,9 +34,7 @@ class UserAPI(APIView):
 
 	def get(self, request, username=None):
 		data = {}
-		post = Post.objects.filter(chanel__follow__user=request.user)
 		data['user_post_count'] = Post.objects.filter(author=request.user).count()
-		data['posts'] = PostSerializer(post, many=True).data
 		if username:
 			try:
 				user = User.objects.get(username=username)

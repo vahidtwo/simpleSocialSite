@@ -27,8 +27,8 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "email",
-											"value": "vahid@test.com",
+											"key": "username",
+											"value": "goli",
 											"type": "text"
 										},
 										{
@@ -62,44 +62,25 @@
 							"response": []
 						},
 						{
-							"name": "signuo",
+							"name": "signup",
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "password",
-											"value": "123",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "test@test.com",
-											"type": "text"
-										},
-										{
-											"key": "first_name",
-											"value": "ali22",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "alian22",
-											"type": "text"
-										},
-										{
-											"key": "phone_number",
-											"value": "09130740142",
-											"type": "text"
-										},
-										{
-											"key": "city",
-											"value": "123",
-											"type": "text"
+									"mode": "raw",
+									"raw": "{\"password\":\"123\",\n\"email\":\"m1a2mad@test.com\",\n\"first_name\":\"ali222\",\n\"last_name\":\"alian222\",\n\"phone_number\":\"09102401211\",\n\"city\":\"123\",\n\"username\":\"ma2mad1\"}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
 								"url": {
 									"raw": "127.0.0.1:8000/api/account/signup",
@@ -123,19 +104,22 @@
 							"name": "forgetPassword",
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTgwNTY1ODA4LCJqdGkiOiJjMjUwMDQ3OTlkY2Q0YzA4OTVmNjQ4ODQ1OWViZTk4YSIsInVzZXJfaWQiOjF9.E6jkCP_JQ9uoQZhAKkx63TpUs3vJXo8nZAqU_nhAyDw",
-											"type": "string"
-										}
-									]
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "vahid@test.com",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
-									"raw": "127.0.0.1:8000/api/ac",
+									"raw": "127.0.0.1:8000/api/account/forgetPassword",
 									"host": [
 										"127",
 										"0",
@@ -145,7 +129,8 @@
 									"port": "8000",
 									"path": [
 										"api",
-										"ac"
+										"account",
+										"forgetPassword"
 									]
 								}
 							},
@@ -218,7 +203,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "vahid1@test.com",
+									"value": "vahid@test.com",
 									"type": "text"
 								},
 								{
@@ -240,6 +225,11 @@
 									"key": "phone_number",
 									"value": "09130744444",
 									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/home/vahid/Downloads/photo_2019-04-17_14-00-14.jpg"
 								}
 							]
 						},
@@ -269,7 +259,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExODI0NTM0LCJqdGkiOiIyMTBlMjEyZTk0NWI0YjUxOWYwYTM3NTcyYWNmMGI4MyIsInVzZXJfaWQiOjEyfQ.axW5WOn2Z1jM5558i9q8hLLuO7aKTG6qVHIAZM2R9kk",
 									"type": "string"
 								}
 							]
@@ -297,10 +287,33 @@
 				{
 					"name": "get",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "127.0.0.1:8000/api/account/get/vahid",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"account",
+								"get",
+								"vahid"
+							]
 						}
 					},
 					"response": []
@@ -368,7 +381,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"test1\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, etra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"chanelIdentifier\":\"vahid\"\n\n}",
+							"raw": "{\n\t\"title\":\"test6\",\n\t\"body\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec risus porttitor, etra vitae in lorem. Etiam egestas odio eget arcu volutpat fermentum.\",\n\t\"chanelIdentifier\":\"vahid\"\n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -506,6 +519,55 @@
 								"posts",
 								"delete",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExODI0NTM0LCJqdGkiOiIyMTBlMjEyZTk0NWI0YjUxOWYwYTM3NTcyYWNmMGI4MyIsInVzZXJfaWQiOjEyfQ.axW5WOn2Z1jM5558i9q8hLLuO7aKTG6qVHIAZM2R9kk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"followed\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/posts/get",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"get"
 							]
 						}
 					},
@@ -797,7 +859,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExODI0NTM0LCJqdGkiOiIyMTBlMjEyZTk0NWI0YjUxOWYwYTM3NTcyYWNmMGI4MyIsInVzZXJfaWQiOjEyfQ.axW5WOn2Z1jM5558i9q8hLLuO7aKTG6qVHIAZM2R9kk",
 									"type": "string"
 								}
 							]
@@ -813,7 +875,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"body\": \"123\",\n    \"comment\":1,\n    \"post\": 1\n}",
+							"raw": "{\n    \"body\": \"good\",\n    \"comment\":null,\n    \"post\": 4\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -904,7 +966,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "127.0.0.1:8000/api/comment/get/1",
+							"raw": "127.0.0.1:8000/api/comment/post/4",
 							"host": [
 								"127",
 								"0",
@@ -915,8 +977,8 @@
 							"path": [
 								"api",
 								"comment",
-								"get",
-								"1"
+								"post",
+								"4"
 							]
 						}
 					},
@@ -986,7 +1048,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"value\":-1,\"post\":2}",
+							"raw": "{\"value\":-1,\"post\":7}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1025,7 +1087,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExODI0NTM0LCJqdGkiOiIyMTBlMjEyZTk0NWI0YjUxOWYwYTM3NTcyYWNmMGI4MyIsInVzZXJfaWQiOjEyfQ.axW5WOn2Z1jM5558i9q8hLLuO7aKTG6qVHIAZM2R9kk",
 									"type": "string"
 								}
 							]
@@ -1104,6 +1166,55 @@
 						"header": [],
 						"url": {
 							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "upload",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjExNzU5NDYyLCJqdGkiOiIxM2MwZmM3M2ZmM2Y0NmVjYWU4ZDBiOTY1NDRlYmIzMyIsInVzZXJfaWQiOjE0fQ.pNWx8ZiVzH34jnrPUtwx7E4-02ewLpwBfgr9LaAD-YA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/vahid/Downloads/photo_2019-11-07_12-42-10.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/upload/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"upload",
+								""
+							]
 						}
 					},
 					"response": []

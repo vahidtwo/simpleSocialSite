@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from like.models import Like
 from .models import Post
 from django.db.models import Sum

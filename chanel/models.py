@@ -7,6 +7,7 @@ class Chanel(models.Model):
 	author = models.ManyToManyField(User, related_name='author')
 	description = models.TextField(max_length=2500)
 	identifier = models.CharField(unique=True, max_length=100)
+	law = models.TextField(max_length=2000, null=True)
 
 	class Meta:
 		db_table = "chanel"

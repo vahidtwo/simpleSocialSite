@@ -60,7 +60,8 @@ chanel:
 		auth
 		url 127.0.0.1:8000/api/chanel/ POST
 		description = required
-		identifier = nullable|uniq
+		identifier = nullable|uniq if not send it set username
+		law = nullable
 	update
 		auth
 		url 127.0.0.1:8000/api/chanel/update/<str:identifier> PUT
@@ -94,12 +95,13 @@ posts:
 	delete:
 		  auth
 		  url 127.0.0.1:8000/api/posts/delete/<int:id> DELETE
-	get by choice:
+	get by choice: !!HAVE PAGINATION!!
 		auth
 		url 127.0.0.1:8000/api/posts/get
 		followed = nullable (boolean) پستایی که یا کامنت گذاشتی یا فالو کرده
 		hotSort = nullable (boolean) بیشترین لایک
 		newestSort = nullable (boolean) جدید ترین ها تا ۱ هفته
+		page_number = nullable
 comment:
 	create:
 		auth
@@ -113,7 +115,7 @@ comment:
 		body = required
 	get :
 		auth
-		127.0.0.1:8000/api/comment/get/<int:post_id>   GET
+		127.0.0.1:8000/api/comment/post/<int:post_id>   GET
 	delete:
 		auth
 		url 127.0.0.1:8000/api/comment/delete/<int:comment_id>  DELETE
@@ -122,12 +124,13 @@ like:
 		auth
 		url 127.0.0.1:8000/api/like/ POST
 		value = required (just choose -1 and 1)
-		post = required
+		post = nullable		  |_ > one of this required
+		comment = nullable    |/
 notify:
 	get
 		auth
 		url 127.0.0.1:8000/api/notify/get GET and 127.0.0.1:8000/api/notify/get/<int:id> GET
-		##   if with 127.0.0.1:8000/api/notify/get/3 get notify this notify dont send in response
+		##   if with 127.0.0.1:8000/api/notify/get/3 get notify this notify dont send in response again and set it to is_read
 search:
 		auth
 		url 127.0.0.1:8000/api/search/ POST

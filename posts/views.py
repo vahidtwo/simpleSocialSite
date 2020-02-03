@@ -1,5 +1,9 @@
 import datetime
+
+from django.core.paginator import Paginator
 from django.db.models import Q, Sum, Case, When, IntegerField
+from rest_framework.pagination import LimitOffsetPagination
+
 from .models import Post
 from django.http import JsonResponse
 from rest_framework.status import (
@@ -79,6 +83,7 @@ class GetPost(APIView):
 
 	def post(self, request):
 		_request_params = request.data
+		page_number = _request_params.get('page_number', 1)
 		if _request_params.get('newestSort'):
 			post = Post.objects.filter(create_time__gte=datetime.date.today() - datetime.timedelta(days=7)).order_by('-create_time')
 		elif _request_params.get('hotSort'):
@@ -91,6 +96,9 @@ class GetPost(APIView):
 			post = Post.objects.filter(chanel__follow__user=request.user)
 		else:
 			post = Post.objects.filter(Q(author=request.user) | Q(comment__owner=request.user))
-
+		paginator = Paginator(post, 10)
+		post = paginator.get_page(page_number)
 		data = PostSerializer(many=True, instance=post).data
-		return JsonResponse(data={'data': data, 'success': True}, status=HTTP_200_OK)
+		return JsonResponse(data={'data': data, 'success': True,
+		                          "page_number": page_number,
+		                          'count': paginator.count, 'last_page': paginator.num_pages}, status=HTTP_200_OK)
