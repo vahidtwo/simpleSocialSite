@@ -13,8 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.urls import path, include
 from search.search import Search
+from sosial import settings
 
 urlpatterns = [
     path('api/account/', include('accounts.urls')),
@@ -23,5 +25,9 @@ urlpatterns = [
     path('api/comment/', include('comment.urls')),
     path('api/like/', include('like.urls')),
     path('api/notify/', include('notify.urls')),
+    path('api/upload/', include('files.urls')),
     path('api/search/', Search.as_view()),
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

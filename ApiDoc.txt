@@ -13,6 +13,9 @@ user:
 		first_name required
 		last_name required
 		phone_number required
+		picture =  nullable (FILE)
+		first_name nullable
+		last_name nullable
 	signup:
 		  no auth
 		  url: 127.0.0.1:8000/api/account/signup  POST
@@ -23,6 +26,7 @@ user:
 		  phone_number = required
 		  city = nullable
 		  country = nullable
+		  picture = nullable (FILE)
 	auth :
 		login:
 			  no auth
@@ -122,3 +126,7 @@ search:
 		auth
 		url 127.0.0.1:8000/api/search/ POST
 		body = required
+upload:
+	auth
+	url 127.0.0.1:8000/api/upload/ POST
+	image = required (FILE)

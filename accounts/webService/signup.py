@@ -8,19 +8,27 @@ from ..serializers import UserSerializer
 from chanel.models import Chanel
 import random
 from django.db.utils import IntegrityError
+from rest_framework.parsers import FileUploadParser
+from rest_framework.response import Response
 
 
 class Signup(APIView):
+	parser_class = (FileUploadParser,)
+
 	def post(self, request):
 		_request_params = request.data
-		validated_data = UserSerializer(data=_request_params)
-		if validated_data.is_valid():
-			validated_data = validated_data.data
-			validated_data['point'] = 0
-			validated_data['phone_number'] = _request_params.get('phone_number')
-			validated_data['email'] = _request_params.get('email')
+		try:
+			_request_params['title'] = str(_request_params.get('picture').name)
+		except Exception:
+			pass
+		ser = UserSerializer(data=_request_params)
+		if ser.is_valid():
+			# validated_data['phone_number'] = _request_params.get('phone_number')
+			# validated_data['email'] = _request_params.get('email')
 			try:
-				user = User.objects.create(**validated_data)
+				# user = User.objects.create(**validated_data)
+				user = ser.save()
+				validated_data = ser.data
 			except IntegrityError as e:
 				return JsonResponse({'data': e.args, 'success': False}, status=HTTP_400_BAD_REQUEST)
 
@@ -39,5 +47,5 @@ class Signup(APIView):
 			chanel.author.add(user)
 			return JsonResponse({'data': validated_data, 'success': True}, status=HTTP_201_CREATED)
 		else:
-			data = validated_data.errors
+			data = ser.errors
 			return JsonResponse(data, status=HTTP_400_BAD_REQUEST)

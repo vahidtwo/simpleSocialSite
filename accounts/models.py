@@ -50,7 +50,7 @@ class User(AbstractBaseUser):
 	phone_number = models.CharField(max_length=13, unique=True)
 	city = models.CharField(max_length=30, null=True)
 	country = models.CharField(max_length=30, null=True)
-	picture = models.ImageField(max_length=1000, null=True)
+	picture = models.ImageField(upload_to='profile/', max_length=1000, null=True)
 
 	USERNAME_FIELD = 'username'
 	REQUIRED_FIELDS = ['first_name', 'last_name', 'phone_number']
