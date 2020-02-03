@@ -7,6 +7,10 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from accounts.models import User
 from accounts.serializers import UserSerializer
+from chanel.models import Follow
+from chanel.serializers import FollowSerializer
+from posts.models import Post
+from posts.serializers import PostSerializer
 
 
 class UserAPI(APIView):
@@ -28,11 +32,30 @@ class UserAPI(APIView):
 			return JsonResponse(data={'msg': ser.errors, 'success': False}, status=HTTP_400_BAD_REQUEST)
 
 	def get(self, request, username=None):
+		data = {}
+		post = Post.objects.filter(chanel__follow__user=request.user)
+		data['user_post_count'] = Post.objects.filter(author=request.user).count()
+		data['posts'] = PostSerializer(post, many=True).data
 		if username:
 			try:
 				user = User.objects.get(username=username)
 			except User.DoesNotExist:
 				return JsonResponse(data={'msg': 'user not found', 'success': False}, status=HTTP_404_NOT_FOUND)
-			return JsonResponse(data={'data': UserSerializer(user).data, 'success': True}, status=HTTP_200_OK)
+			follower = Follow.objects.filter(chanel__owner=user)
+			following = Follow.objects.filter(user=user)
+			data['follower'] = FollowSerializer(follower, many=True).data
+			data['follower_count'] = follower.count()
+			data['following'] = FollowSerializer(following, many=True).data
+			data['following_count'] = following.count()
+
+			data['user_data'] = UserSerializer(user).data
+			return JsonResponse(data={'data': data, 'success': True}, status=HTTP_200_OK)
 		else:
-			return JsonResponse(data={'data': UserSerializer(request.user).data, 'success': True}, status=HTTP_200_OK)
+			data['user_data'] = UserSerializer(request.user).data
+			follower = Follow.objects.filter(chanel__owner=request.user)
+			following = Follow.objects.filter(user=request.user)
+			data['follower'] = FollowSerializer(follower, many=True).data
+			data['follower_count'] = follower.count()
+			data['following'] = FollowSerializer(following, many=True).data
+			data['following_count'] = following.count()
+			return JsonResponse(data={'data': data, 'success': True}, status=HTTP_200_OK)

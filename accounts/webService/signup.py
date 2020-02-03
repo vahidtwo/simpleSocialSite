@@ -1,4 +1,3 @@
-from ..models import User
 from django.http import JsonResponse
 from rest_framework.status import (
 	HTTP_201_CREATED, HTTP_400_BAD_REQUEST
@@ -9,7 +8,6 @@ from chanel.models import Chanel
 import random
 from django.db.utils import IntegrityError
 from rest_framework.parsers import FileUploadParser
-from rest_framework.response import Response
 
 
 class Signup(APIView):
@@ -23,10 +21,7 @@ class Signup(APIView):
 			pass
 		ser = UserSerializer(data=_request_params)
 		if ser.is_valid():
-			# validated_data['phone_number'] = _request_params.get('phone_number')
-			# validated_data['email'] = _request_params.get('email')
 			try:
-				# user = User.objects.create(**validated_data)
 				user = ser.save()
 				validated_data = ser.data
 			except IntegrityError as e:

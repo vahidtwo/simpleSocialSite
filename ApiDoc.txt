@@ -1,8 +1,8 @@
 user:
-	me:
+	me: گرفتن پروفایل و پستای خودمون
 		auth
 		url 127.0.0.1:8000/api/account/me GET
-	get:
+	get: گرفتن پست ها و پروفایل بقیه
 		auth
 		url 127.0.0.1:8000/api/account/get/<username> GET
 	update:
@@ -94,6 +94,12 @@ posts:
 	delete:
 		  auth
 		  url 127.0.0.1:8000/api/posts/delete/<int:id> DELETE
+	get by choice:
+		auth
+		url 127.0.0.1:8000/api/posts/get
+		followed = nullable (boolean) پستایی که یا کامنت گذاشتی یا فالو کرده
+		hotSort = nullable (boolean) بیشترین لایک
+		newestSort = nullable (boolean) جدید ترین ها تا ۱ هفته
 comment:
 	create:
 		auth

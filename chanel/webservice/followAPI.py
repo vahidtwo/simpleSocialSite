@@ -31,6 +31,9 @@ class Following(APIView):
 				return JsonResponse(data={'msg': 'you unFollow {}'.format(follow.chanel.identifier), 'success': True},
 				                    status=HTTP_201_CREATED)
 			except Follow.DoesNotExist:
+				if chanel.owner == request.user:
+					return JsonResponse(data={'msg': 'you cant follow your self', 'success': True},
+					                    status=HTTP_201_CREATED)
 				follow = Follow.objects.create(**{'user': request.user, 'chanel': chanel})
 				Notify.objects.create(**{'user': follow.chanel.owner, 'body': 'you follow by {}'.
 				                      format(request.user.get_username()),

@@ -9,15 +9,14 @@ class PostSerializer(serializers.ModelSerializer):
 	like = serializers.SerializerMethodField()
 
 	def get_like(self, obj):
-		print(obj._meta)
-		if (obj._meta is Post._meta):
-			liked = Like.objects.filter(post_id=obj.id, value=1).aggregate(Sum('value'))['value__sum']
-			dislike = Like.objects.filter(post_id=obj.id, value=-1).aggregate(Sum('value'))['value__sum']
-			liked = liked if liked else 0
-			dislike = dislike if dislike else 0
-			return {'liked': liked, 'disLiked': dislike}
-		else:
-			return {'liked': 0, 'disLiked': 0}
+		if type(obj) is Post:
+			if obj._meta is Post._meta:
+				liked = Like.objects.filter(post_id=obj.id, value=1).aggregate(Sum('value'))['value__sum']
+				dislike = Like.objects.filter(post_id=obj.id, value=-1).aggregate(Sum('value'))['value__sum']
+				liked = liked if liked else 0
+				dislike = dislike if dislike else 0
+				return {'liked': liked, 'disLiked': dislike}
+		return {'liked': 0, 'disLiked': 0}
 
 	def update(self, instance, validated_data):
 		instance.title = validated_data.get('title', instance.title)

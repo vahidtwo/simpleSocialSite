@@ -1,3 +1,5 @@
+import datetime
+from django.db.models import Q, Sum, Case, When, IntegerField
 from .models import Post
 from django.http import JsonResponse
 from rest_framework.status import (
@@ -6,7 +8,7 @@ from rest_framework.status import (
 from .serializers import PostSerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from Helper.permission import  IsAuthorOwner
+from Helper.permission import IsAuthorOwner
 from chanel.models import Chanel
 
 
@@ -44,9 +46,6 @@ class Posts(APIView):
 		elif identifier:
 			data = PostSerializer(Post.objects.filter(chanel__identifier=identifier),
 			                      many=True).data
-		else:
-			_request_params = request.data
-			data = PostSerializer(many=True, instance=Post.objects.filter(owner=_request_params.get('owner'))).data
 		return JsonResponse(data={'msg': data, 'success': True}, status=HTTP_200_OK)
 
 	def put(self, request, pk):
@@ -73,3 +72,25 @@ class Posts(APIView):
 			return JsonResponse(data={'msg': 'delete post', 'success': True}, status=HTTP_200_OK)
 		except Chanel.DoesNotExist:
 			return JsonResponse(data={'msg': 'post Dose not exists', 'success': False}, status=HTTP_400_BAD_REQUEST)
+
+
+class GetPost(APIView):
+	permission_classes = (IsAuthenticated,)
+
+	def post(self, request):
+		_request_params = request.data
+		if _request_params.get('newestSort'):
+			post = Post.objects.filter(create_time__gte=datetime.date.today() - datetime.timedelta(days=7)).order_by('-create_time')
+		elif _request_params.get('hotSort'):
+			post = Post.objects.annotate(like_counts=Case(
+				When(like__isnull=False, then=Sum('like__value')),
+				When(like__isnull=True, then=0),
+				output_field=IntegerField()
+			)).order_by('-like_counts')
+		elif _request_params.get('followed'):
+			post = Post.objects.filter(chanel__follow__user=request.user)
+		else:
+			post = Post.objects.filter(Q(author=request.user) | Q(comment__owner=request.user))
+
+		data = PostSerializer(many=True, instance=post).data
+		return JsonResponse(data={'data': data, 'success': True}, status=HTTP_200_OK)
