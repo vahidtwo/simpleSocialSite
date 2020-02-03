@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'notify.apps.NotifyConfig',
     'files.apps.FilesConfig',
     'rest_framework',
-    # 'django_mysql',
+    'corsheaders',
 ]
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
