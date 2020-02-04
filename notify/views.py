@@ -1,4 +1,3 @@
-from accounts.models import User
 from notify.models import Notify
 from django.http import JsonResponse
 from rest_framework.status import (

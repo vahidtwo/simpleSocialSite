@@ -1,4 +1,3 @@
-from accounts.models import User
 from comment.models import Comment
 from like.models import Like
 from like.serializers import LikeSerializer
@@ -11,7 +10,6 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
 
-# Create your views here.
 class Likes(APIView):
 	permission_classes = (IsAuthenticated,)
 

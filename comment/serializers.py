@@ -1,6 +1,5 @@
 from django.db.models import Sum
 from rest_framework import serializers
-
 from like.models import Like
 from .models import Comment
 from accounts.serializers import UserSerializer

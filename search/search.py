@@ -1,14 +1,11 @@
 from django.db.models import Q
-
 from accounts.models import User
 from accounts.serializers import UserSerializer
 from chanel.models import Chanel
 from django.http import JsonResponse
 from rest_framework.status import HTTP_200_OK
-
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-
 from chanel.serializers import ChanelSerializer
 from posts.models import Post
 from posts.serializers import PostSerializer

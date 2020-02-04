@@ -1,13 +1,12 @@
 from django.http import JsonResponse
 from rest_framework.status import (
-	HTTP_400_BAD_REQUEST, HTTP_200_OK, HTTP_201_CREATED
+	HTTP_400_BAD_REQUEST, HTTP_201_CREATED
 )
 
 from notify.models import Notify
-from ..serializers import ChanelSerializer, FollowSerializer
+from ..serializers import  FollowSerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from Helper.permission import IsOwner
 from chanel.models import Chanel, Follow
 
 

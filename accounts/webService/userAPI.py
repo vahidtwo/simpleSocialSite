@@ -1,4 +1,3 @@
-from django.core.paginator import Paginator
 from django.http import JsonResponse
 from rest_framework.parsers import FileUploadParser
 from rest_framework.status import (
@@ -11,7 +10,6 @@ from accounts.serializers import UserSerializer
 from chanel.models import Follow
 from chanel.serializers import FollowSerializer
 from posts.models import Post
-from posts.serializers import PostSerializer
 
 
 class UserAPI(APIView):

@@ -2,8 +2,6 @@ import datetime
 
 from django.core.paginator import Paginator
 from django.db.models import Q, Sum, Case, When, IntegerField
-from rest_framework.pagination import LimitOffsetPagination
-
 from .models import Post
 from django.http import JsonResponse
 from rest_framework.status import (

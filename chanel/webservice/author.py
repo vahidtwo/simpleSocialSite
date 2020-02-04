@@ -1,10 +1,9 @@
 from django.http import JsonResponse
 from rest_framework.status import (
-	HTTP_404_NOT_FOUND, HTTP_200_OK, HTTP_201_CREATED, HTTP_404_NOT_FOUND, HTTP_400_BAD_REQUEST
+	HTTP_201_CREATED, HTTP_404_NOT_FOUND, HTTP_400_BAD_REQUEST
 )
 
 from accounts.models import User
-from ..serializers import ChanelSerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from Helper.permission import IsChanelOwner
@@ -27,10 +26,12 @@ class Author(APIView):
 			return JsonResponse(data={'msg': 'user not found', 'success': False}, status=HTTP_400_BAD_REQUEST)
 		try:
 			Chanel.objects.get(identifier=_request_params.get('identifier'), author=author)
-			return JsonResponse(data={'msg': 'user is already your author ', 'success': False}, status=HTTP_400_BAD_REQUEST)
+			return JsonResponse(data={'msg': 'user is already your author ', 'success': False},
+			                    status=HTTP_400_BAD_REQUEST)
 		except Chanel.DoesNotExist:
 			chanel.author.add(author)
-			return JsonResponse(data={'msg': 'user add to your chanel author ', 'success': True}, status=HTTP_201_CREATED)
+			return JsonResponse(data={'msg': 'user add to your chanel author ', 'success': True},
+			                    status=HTTP_201_CREATED)
 
 	def delete(self, request, author):
 		_request_params = request.data
