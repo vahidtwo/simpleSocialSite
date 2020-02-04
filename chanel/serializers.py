@@ -16,6 +16,8 @@ class ChanelSerializer(serializers.ModelSerializer):
 	def update(self, instance, validated_data):
 		instance.description = validated_data.get('description', instance.description)
 		instance.identifier = validated_data.get('identifier', instance.identifier)
+		instance.law = validated_data.get('law', instance.identifier)
+		instance.title = validated_data.get('title', instance.identifier)
 		instance.save()
 		return instance
 

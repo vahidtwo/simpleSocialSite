@@ -1,3 +1,5 @@
+from statistics import mode
+
 from django.db import models
 from accounts.models import User
 
@@ -7,7 +9,8 @@ class Chanel(models.Model):
 	author = models.ManyToManyField(User, related_name='author')
 	description = models.TextField(max_length=2500)
 	identifier = models.CharField(unique=True, max_length=100)
-	law = models.TextField(max_length=2000, null=True)
+	law = models.TextField(max_length=2000)
+	title = models.CharField(max_length=150)
 
 	class Meta:
 		db_table = "chanel"
