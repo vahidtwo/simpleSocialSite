@@ -28,7 +28,7 @@ class Chanels(APIView):
 		else:
 			return JsonResponse(data={'msg': ser.errors, 'success': False}, status=HTTP_400_BAD_REQUEST)
 
-	def put(self, request, identifier):
+	def put(self, request, identifier=None):
 		_request_params = dict(request.data)
 		_request_params['owner'] = request.user.id
 		_request_params['author'] = request.user.id
@@ -38,7 +38,7 @@ class Chanels(APIView):
 		except Chanel.DoesNotExist:
 			return JsonResponse(data={'msg': 'chanel Dose not exists', 'success': False}, status=HTTP_400_BAD_REQUEST)
 
-		ser = ChanelSerializer(chanel, data=_request_params)
+		ser = ChanelSerializer(chanel, data=_request_params, partial=True)
 		if ser.is_valid():
 			ser.save()
 			return JsonResponse(data={'msg': 'update chanel', 'success': True}, status=HTTP_200_OK)

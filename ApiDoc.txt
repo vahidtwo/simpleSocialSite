@@ -7,7 +7,7 @@ user:
 		url 127.0.0.1:8000/api/account/get/<username> GET
 	update:
 		auth
-		url 127.0.0.1:8000/api/account/update POST
+		url 127.0.0.1:8000/api/account/update PUT
 		email required
 		username required
 		first_name required

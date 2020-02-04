@@ -23,7 +23,7 @@ class UserAPI(APIView):
 		except Exception:
 			pass
 		user = request.user
-		ser = UserSerializer(user, _request_perms)
+		ser = UserSerializer(user, _request_perms, partial=True)
 		if ser.is_valid():
 			ser.save()
 			return JsonResponse(data={'msg': 'user update', 'success': True}, status=HTTP_200_OK)

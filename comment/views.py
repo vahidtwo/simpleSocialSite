@@ -49,7 +49,7 @@ class Comments(APIView):
 		except Comment.DoesNotExist:
 			return JsonResponse(data={'msg': 'comment id is not correct', 'success': False},
 			                    status=HTTP_400_BAD_REQUEST)
-		ser = CommentSerializer(comment, _request_params, allow_null=True)
+		ser = CommentSerializer(comment, _request_params, partial=True)
 		if ser.is_valid():
 			ser.save()
 			return JsonResponse(data={'msg': 'comment is update', 'success': True},

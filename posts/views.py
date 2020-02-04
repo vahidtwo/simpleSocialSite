@@ -59,7 +59,7 @@ class Posts(APIView):
 			_request_params['author'] = post.author_id
 		except Post.DoesNotExist:
 			return JsonResponse(data={'msg': 'post DosNotExist', 'success': False}, status=HTTP_400_BAD_REQUEST)
-		ser = PostSerializer(post, _request_params, allow_null=True)
+		ser = PostSerializer(post, _request_params, partial=True)
 		if ser.is_valid():
 			ser.save()
 			return JsonResponse(data={'msg': 'update post', 'success': True}, status=HTTP_200_OK)
