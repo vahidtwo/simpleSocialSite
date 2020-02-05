@@ -54,7 +54,7 @@ class Chanels(APIView):
 		except Chanel.DoesNotExist:
 			return JsonResponse(data={'msg': 'chanel Dose not exists', 'success': False}, status=HTTP_400_BAD_REQUEST)
 
-	def get(self, request, identifier=None):
+	def get(self, request, identifier=None, id=None):
 		if not identifier:
 			chanel = Chanel.objects.filter(author=request.user)
 			return JsonResponse(
@@ -62,9 +62,12 @@ class Chanels(APIView):
 				status=HTTP_201_CREATED)
 		else:
 			try:
-				chanel = Chanel.objects.get(identifier=identifier)
+				if id:
+					chanel = Chanel.objects.get(id=id)
+				else:
+					chanel = Chanel.objects.get(identifier=identifier)
 				return JsonResponse(data={'data': ChanelSerializer(chanel, read_only=True).data, 'success': True},
-				                    status=HTTP_201_CREATED)
+				                    status=HTTP_200_OK)
 			except Chanel.DoesNotExist:
 				return JsonResponse(data={'msg': 'chanel Dose not exists', 'success': False},
 				                    status=HTTP_400_BAD_REQUEST)

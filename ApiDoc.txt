@@ -74,7 +74,9 @@ chanel:
 		auth
 		url 127.0.0.1:8000/api/chanel/get GET
 						and
-			127.0.0.1:8000/api/chanel/get/<str:identifier>  GET
+		127.0.0.1:8000/api/chanel/get/<str:identifier>  GET
+						and
+		127.0.0.1:8000/api/chanel/get/<int:id>  GET
 posts:
 	getSpecialPost:
 		  auth
