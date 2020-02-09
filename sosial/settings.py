@@ -73,22 +73,22 @@ SIMPLE_JWT = {
 	'SLIDING_TOKEN_LIFETIME': datetime.timedelta(days=360),
 	'SLIDING_TOKEN_REFRESH_LIFETIME': datetime.timedelta(days=365),
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'social',
-		'USER': 'root',
-		'PASSWORD': '123',
-		'HOST': '127.0.0.1',
-		'PORT': '3306',
-	}
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.mysql',
+# 		'NAME': 'social',
+# 		'USER': 'root',
+# 		'PASSWORD': '123',
+# 		'HOST': '127.0.0.1',
+# 		'PORT': '3306',
+# 	}
+# }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')

@@ -1,7 +1,10 @@
 import datetime
+from pickle import FALSE
 
 from django.core.paginator import Paginator
-from django.db.models import Q, Sum, Case, When, IntegerField
+from django.db.models import Q, Sum, Case, When, IntegerField, Count
+from django.db.models.functions import Coalesce
+
 from .models import Post
 from django.http import JsonResponse
 from rest_framework.status import (
@@ -85,11 +88,7 @@ class GetPost(APIView):
 		if _request_params.get('newestSort'):
 			post = Post.objects.filter(create_time__gte=datetime.date.today() - datetime.timedelta(days=7)).order_by('-create_time')
 		elif _request_params.get('hotSort'):
-			post = Post.objects.annotate(like_counts=Case(
-				When(like__isnull=False, then=Sum('like__value')),
-				When(like__isnull=True, then=0),
-				output_field=IntegerField()
-			)).order_by('-like_counts')
+			post = Post.objects.annotate(total=Coalesce(Sum('like__value'), 0)).order_by('-total')
 		elif _request_params.get('followed'):
 			post = Post.objects.filter(chanel__follow__user=request.user)
 		else:
